@@ -30,6 +30,7 @@ while True:
     cnts = imutils.grab_contours(cnts)
     print("Running")
     print("Total lengths ", len(cnts))
+    my = 0
     for c in cnts:
         if cv2.contourArea(c) < 200:
             continue
@@ -38,15 +39,18 @@ while True:
         approx = cv2.approxPolyDP(c, 0.04*peri, True)
         if len(approx) == 4:
             (x,y, w, h) = cv2.boundingRect(approx)
-            ar = w / float(h)
-            shape = "rectangle"
-            c = c.astype("int")
-            # cv2.drawContours(frame, [c], -1, (0,255,0),1)
+            #ar = w / float(h)
+            #shape = "rectangle"
+            #c = c.astype("int")
+            cv2.drawContours(frame, [c], -1, (0,255,0),1)
             cv2.rectangle(frame, (x,y), (x+w,y+h),(0,255,0),1)
-            cv2.imshow(str(x), frame[y:y+h,x:x+w])
+            cv2.imshow(str(my), frame[y:y+h,x:x+w])
+            my += 1
     cv2.imshow("edges", edges)
     cv2.imshow("real Image", frame)
+    
     k = cv2.waitKey(0)
+    
     if k == 27:
         break
 
