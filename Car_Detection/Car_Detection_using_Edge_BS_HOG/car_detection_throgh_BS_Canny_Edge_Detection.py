@@ -7,6 +7,17 @@ from sklearn.model_selection import train_test_split
 from sklearn.svm import LinearSVC
 from skimage.feature import hog
 
+#                           CAMERA SELECTION INPUT
+print("\t\tEnter 'y' or 'Y' for Video file or any key for Camera")
+fileName = 0
+try:
+    key = input('\tKey: ').upper() # Changing key to upper
+    if key == 'Y':
+        fileName = 'camera.mp4'
+except:
+    fileName = 0
+
+
 #                           START READING FILES FOR VEHICLES AND NON-VEHICLES
 # Reading car images
 vehicle_image_arr1 = glob.glob('/media/rd_square/Important/Image_processing/car_data_with_neg/vehicles/*/*.png')
@@ -101,7 +112,7 @@ print("Accuracy of trained svm classifier is ", svcClassifier.score(X_test, Y_te
 
 #                    START DETECTING MOVING OBJECTS IN IMAGES
 
-video = cv2.VideoCapture('camera.mp4') # Capturing video from camera
+video = cv2.VideoCapture(fileName) # Capturing video from camera
 
 # Initialize the first frame in the video stream
 firstFrame = None

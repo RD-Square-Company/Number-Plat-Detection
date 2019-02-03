@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import imutils
 
-video = cv2.VideoCapture('jklu_parking_data/numberplate/a5.mp4') # Loading video in script
+video = cv2.VideoCapture('../jklu_parking_data/numberplate/a5.mp4') # Loading video in script
 
 while True:
     # Capturing image of car
