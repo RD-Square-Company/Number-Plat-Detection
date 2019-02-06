@@ -29,7 +29,7 @@ while True:
         print(text)
 
     cv2.imshow("Real Image", real)
-    k = cv2.waitKey(30)
+    k = cv2.waitKey(0)
     if k == 27:
         break
     #cv2.imwrite("car_number_plate.png", real)

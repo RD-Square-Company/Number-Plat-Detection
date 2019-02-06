@@ -102,7 +102,7 @@ class CharacterDetector:
         # value will be white if it is white in both the sections
         
         newImage = cv2.bitwise_and(self.__threshold, self.__mask)
-        config = ("-l eng --oem 1 --psm 7") 
+        config = ("-l eng --oem 1 --psm 7")
         return image_to_string(newImage, config=config)
 
         
